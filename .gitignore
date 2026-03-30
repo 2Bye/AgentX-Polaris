@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Data
+tau2-bench/
+
+# Logs
+*.log
+
+# Nested git repos (keep sources but don't track as submodules)
+_template/
+_tutorial/
+
+# Test / dev scripts
+test_llm.py
+scenario.toml

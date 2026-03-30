@@ -1,0 +1,46 @@
+{
+  manifest_version: "0.1.0",
+
+  // Config values required from the deployer
+  // OPENAI_API_KEY is a secret and must be provided securely
+  config_schema: {
+    type: "object",
+    properties: {
+      openai_api_key: { type: "string", secret: true },
+    },
+    required: ["openai_api_key"],
+    additionalProperties: false,
+  },
+
+  // External A2A services (none required for standalone operation)
+  slots: {
+    proxy: { kind: "a2a", optional: true },
+  },
+
+  // Runtime configuration
+  program: {
+    // Docker image published to GitHub Container Registry
+    image: "ghcr.io/2bye/agentx-polaris:latest",
+    entrypoint: "uv run src/server.py --host 0.0.0.0 --port 9009",
+
+    // Pass secrets and config as environment variables
+    env: {
+      OPENAI_API_KEY: "${config.openai_api_key}",
+      AGENT_LLM: "openai/gpt-5.4",
+    },
+
+    network: {
+      endpoints: [
+        { name: "a2a_endpoint", port: 9009 }, // must match entrypoint port
+      ],
+    },
+  },
+
+  // Capabilities provided by this agent
+  provides: {
+    a2a: { kind: "a2a", endpoint: "a2a_endpoint" },
+  },
+
+  // Expose A2A capability to the scenario
+  exports: { a2a: "a2a" },
+}
