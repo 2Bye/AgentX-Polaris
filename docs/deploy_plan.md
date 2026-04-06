@@ -4,12 +4,12 @@
 
 ## Чеклист
 
-- [x] **Шаг 0:** Локальное тестирование — Pass Rate 100% (2/2), модель `gpt-5.4`
+- [x] **Шаг 0:** Локальное тестирование — Pass Rate 100% (10/10), модель `gpt-5.4` (улучшенный промпт v2)
 - [x] **Шаг 1:** Фикс GitHub Actions CI (`test-and-publish.yml`)
 - [x] **Шаг 2:** Полноценный `amber-manifest.json5`
-- [ ] **Шаг 3:** Инициализация Git-репозитория и push на GitHub
-- [ ] **Шаг 4:** Верификация Docker-образа локально
-- [ ] **Шаг 5:** Регистрация на `agentbeats.dev`
+- [x] **Шаг 3:** Инициализация Git-репозитория и push на GitHub
+- [x] **Шаг 4:** Docker образ собран и опубликован в ghcr.io (через GitHub Actions CI)
+- [x] **Шаг 5:** Регистрация на `agentbeats.dev` — ✅ опубликован на https://agentbeats.dev/2Bye/agentx-polaris
 
 ---
 
