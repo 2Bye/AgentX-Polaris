@@ -37,3 +37,6 @@ _tutorial/
 # Test / dev scripts
 test_llm.py
 scenario.toml
+
+# Local progress notes
+PROGRESS.md
